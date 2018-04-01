@@ -1,0 +1,1 @@
+import {combineReducers} from "redux"import home from "./home";import {routerReducer} from 'react-router-redux'let reducers = combineReducers({  router:routerReducer,home,})export default reducers;
