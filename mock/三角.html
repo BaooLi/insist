@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .con{
+            width:500px;
+            height: 500px;
+            /*background: #cde9fc;*/
+            padding: 50px;
+        }
+        .box{
+            width:200px;
+            height: 100px;
+            background: #e3f9fe;
+            position: relative;
+        }
+        .box:before{
+            content: "";
+            border: 20px solid #737373;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+            position: absolute;
+            left: 45%;
+            top: 100px;
+        }
+        .box:after{
+            content: "";
+            border: 20px solid #fff;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+            position: absolute;
+            left: 45%;
+            top: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="con">
+    <div class="box"></div>
+    <div class="a"></div>
+    <div class="box1"></div>
+</div>
+
+</body>
+</html>

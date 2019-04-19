@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #div1 {
+            width: 800px;
+            height: 500px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+            overflow: scroll;
+        }
+
+        #drag1 {
+            width: 100px;
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br/>
+行数 <input type="text" value="5" id="rows">
+列数 <input type="text" value="3" id="cols">
+<ul>
+    <li draggable="true" id='div2' ondragstart="drag(event)">事实表1</li>
+</ul>
+
+
+</body>
+</html>
+<script type="text/javascript">
+
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("Text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var oDiv = document.getElementById('div1');
+        var oFrag = document.createDocumentFragment();
+        /*创建文档碎片*/
+        let rows=document.getElementById('rows').value
+        let cols=document.getElementById('cols').value
+        var oTable = document.createElement('table');
+        oTable.width = 500;
+       //oTable.border = 2;
+        for (var i = 0; i < rows; i++) {
+            oTable.insertRow(i)
+            for (var j = 0; j < cols; j++) {
+                oTable.rows[i].insertCell(j).innerHTML = i + '' + j;
+                oTable.rows[i].cells[j].style.background = 'pink'
+            }
+        }
+        oFrag.appendChild(oTable);
+        ev.target.appendChild(oFrag);
+    }
+</script>

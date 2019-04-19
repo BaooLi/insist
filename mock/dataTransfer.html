@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .text{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+<p class="text">
+    为了在拖放操作时实现数据交换，引入了dataTransfer对象，它是事件对象的一个属性，用于从被拖动元素向放置目标传递字符串格式的数据
+</p>
+<p class="text">dataTransfer对象有两个主要方法：getData()和setData()</p>
+<p class="text">
+    在拖动文本框中的文本时，浏览器会调用setData()方法，将拖动的文本以"text"格式保存在dataTransfer对象中。类似地，在拖放链接或图像时，会调用setData()方法并保存URL。然后，在这些元素被拖放到放置目标时，就可以通过getData()读到这些数据
+</p>
+<div>请将从这行文字中挑选一些移动到拖放目标中</div>
+<div id="target" style="margin-top:20px;height: 100px;width:200px;background:lightblue;">拖放目标</div>
+<div id="result"></div>
+</body>
+</html>
+<script>
+  target.ondragenter = function(e){
+    e = e || event;
+    if(e.preventDefault){
+      e.preventDefault();
+    }else{
+      e.returnValue = false;
+    }
+    this.innerHTML = '有元素进入目标区域';
+    this.style.background = 'red';
+  }
+  target.ondragover = function(e){
+    e = e || event;
+    if(e.preventDefault){
+      e.preventDefault();
+    }else{
+      e.returnValue = false;
+    }
+  }
+  target.ondragleave = function(e){
+    e = e || event;
+    this.innerHTML = '元素已离开目标区域';
+    this.style.backgroundColor = 'lightblue';
+  }
+  target.ondrop = function(e){
+    e = e || event;
+    if(e.preventDefault){
+      e.preventDefault();
+    }else{
+      e.returnValue = false;
+    }
+    result.innerHTML = '落入目标区域的文字为:' + e.dataTransfer.getData('text');
+    this.innerHTML = '元素已落在目标区域:'+ e.dataTransfer.getData('text');
+    this.style.backgroundColor = 'orange';
+  }
+
+</script>

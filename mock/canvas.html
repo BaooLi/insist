@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id='box' style="border:1px solid green" width="500px" height="500px"></canvas>
+</body>
+</html>
+<script>
+    let box=document.getElementById('box');
+    let context=box.getContext('2d');
+    context.fillStyle='#ccc';
+    context.fillRect(50,50,100,100);
+</script>

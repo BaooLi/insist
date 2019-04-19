@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .content, .outer-container {
+            width: 200px;
+            height: 200px;
+        }
+
+        .outer-container {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid green;
+        }
+
+        .inner-container {
+            position: absolute;
+            left: 0;
+            overflow-x: scroll;
+            overflow-y: scroll;
+        }
+
+        .inner-container::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="outer-container">
+    <div class="inner-container">
+        <div class="content">
+            期间，webpack 经历了几个主要版本变更，从开始火热的 1.x 版本，经过了 2.x，3.x，走到了现在还在成长中的 4.x 版本，webpack 在不断地完善中。整个 webpack 社区一直是相当活跃的，周边相关的插件等基本覆盖了前端日常开发工作所需，随时代发展，也添加了不少新特性，如 tree-shaking 等。
+            使用过 webpack 的都了解，webpack 本身具备了诸多优点：从单一入口出发，打包所有前端资源，使用 loader 处理多种代码语言的转换，使用 plugin 扩展原有的模块打包流程，使用 HMR 提升开发体验，利用代码压缩和代码分割来提升前端加载性能等。
+
+            我们可以发现，在大多数项目中，webpack 已经可以成为构建工作的主心骨，应该具备的功能都已经具备，对 webpack 的了解几乎成了前端开发人员必不可少的技能之一。
+        </div>
+    </div>
+</div>
+</body>
+</html>

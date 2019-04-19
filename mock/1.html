@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>拖动填入</title>
+
+    <style type="text/css">
+        <!--
+        .pull {
+            cursor:move;
+        }
+        #virtual{
+            position:absolute;
+            display:block;
+        }
+        -->
+    </style>
+</head>
+<script language="javascript" type="text/javascript">
+  <!--
+  var currentMoveObj = null;    //当前拖动对象
+  var pullString = "";		//保存字符
+  function pullIn(id){
+    currentMoveObj = document.getElementById(id);
+    pullString = currentMoveObj.innerText;
+  }
+  window.document.onmouseup = function() {
+
+    currentMoveObj = null;    //当鼠标释放时同时释放拖动对象
+    pullString = "";
+    document.body.style.cursor = "auto";
+  }
+  window.document.onmousemove = function() {
+    if(currentMoveObj != null) {
+      document.body.style.cursor = "move";
+    }
+  }
+  function pullOut(id){
+    var oldValue = document.getElementById(id).value;
+    if(currentMoveObj!=null) {
+      document.getElementById(id).value = oldValue + pullString;
+    }
+  }
+  //-->
+</script>
+<body>
+<span onmousedown="pullIn('lb1')" id="lb1" class="pull" onselectstart="return false">Hello</span>
+<br>
+<span  onmousedown="pullIn('lb2')" id="lb2" class="pull" onselectstart="return false">World</span>
+<br>
+<input name="txt1" type="text" id="txt1"  onmouseup="pullOut('txt1')"/>
+
+<br />
+<input name="txt2" type="text" id="txt2" onmouseup="pullOut('txt2')"/>
+</body>
+</html>
